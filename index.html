@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 62);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1.02rem;
+        }
+
+        .left {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 80px 0;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            font-size: 3rem;
+        }
+
+        .rightSection img {
+            width: 80%;
+            animation: bounceIn 2s ease;
+        }
+
+        .purple {
+            color: rgb(170, 107, 228);
+        }
+
+        #element {
+            color: rgb(170, 107, 228);
+        }
+
+        .section {
+            padding: 50px 100px;
+            text-align: center;
+        }
+
+        .aboutSection {
+            margin: 50px 0;
+            background: rgb(18, 18, 62);
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            animation: slideIn 1.5s ease;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: rgb(170, 107, 228);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            text-align: center;
+            width: 120px;
+        }
+
+        .skill img {
+            width: 100%;
+            max-width: 100px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill img:hover {
+            transform: scale(1.1);
+        }
+
+        .project-card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgb(35, 35, 101);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+            color: rgb(170, 107, 228);
+        }
+
+        footer {
+            background-color: #0e0e1a;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Coding Profiles Section */
+        .coding-profiles-container {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .profile-link {
+            background: rgb(18, 18, 62);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .profile-link:hover {
+            background-color: rgb(170, 107, 228);
+        }
+
+        /* Resume Button */
+        .resume-button {
+            background-color: rgb(170, 107, 228);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 30px 0;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .resume-button:hover {
+            background-color: rgb(139, 87, 200);
+            transform: scale(1.05);
+        }
+
+        #coding h3 {
+            font-weight: normal;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: white;
+            margin: 20px 0;
+        }
+
+
+        .coding-profile-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .coding-profile {
+            text-align: center;
+        }
+
+        .coding-profile img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .coding-profile img:hover {
+            transform: scale(1.1);
+        }
+
+        .coding-profile a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            60% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Adithya's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="firstSection">
+            <div class="leftSection">
+                Hi, My name is <span class="purple">Adithya</span>
+                <div>and I am a</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="bg.png" alt="Personal illustration">
+            </div>
+        </section>
+
+        <section id="about" class="section aboutSection">
+            <h2>About Me</h2>
+            <p>Hello! I'm Adithya Vardhan Dosapati, a Computer Science Engineering student at VIT AP University, set to
+                graduate in 2025.
+                I'm passionate about backend development, AI & ML, and data science. My technical skills include Java,
+                Python, R,
+                and web development tools like HTML, CSS, and JavaScript. I love building impactful projects and
+                collaborating on innovative solutions.
+            </p>
+            <div class="skills-container">
+                <div class="skill">
+                    <img src="java.png" alt="Java">
+                    <p>Java</p>
+                </div>
+                <div class="skill">
+                    <img src="python.png" alt="Python">
+                    <p>Python</p>
+                </div>
+                <div class="skill">
+                    <img src="html.png" alt="HTML">
+                    <p>HTML</p>
+                </div>
+                <div class="skill">
+                    <img src="css.png" alt="CSS">
+                    <p>CSS</p>
+                </div>
+                <div class="skill">
+                    <img src="js.png" alt="JavaScript">
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill">
+                    <img src="sql.png" alt="MySQL">
+                    <p>MySQL</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section projectsSection">
+            <h2>Projects</h2>
+            <div class="project-card-container">
+                <div class="project-card">
+                    <img src="project1.png" alt="Project 1">
+                    <h3>Query based Greenery Estimator</h3>
+                    <p>A web application for spatial query-based greenery estimator devised with CNN using satellite
+                        images.</p>
+                </div>
+                <div class="project-card">
+                    <img src="project2.png" alt="Project 2">
+                    <h3>Accurate Body Fat Predictor using ML</h3>
+                    <p>An accurate body fat predictor using several Machine Learning models.</p>
+                </div>
+                <div class="project-card">
+                    <img src="project3.png" alt="Project 3">
+                    <h3>Amazon Clone using HTML,CSS and JS</h3>
+                    <p>An interactive clone of Amazon website which is fully functional.</p>
+                </div>
+                <div class="project-card">
+                    <img src="project4.png" alt="Project 4">
+                    <h3>Personalized Learning Platform with AI</h3>
+                    <p>An AI-driven platform tailored to adapt to individual learning styles.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="coding" class="section codingProfiles">
+            <h2>Coding Profiles</h2>
+            <h3>I have demonstrated strong problem-solving abilities and algorithmic thinking through active
+                participation
+                on platforms like LeetCode, CodeChef, HackerRank, and GeeksforGeeks. With over 200 problems solved on
+                LeetCode,
+                I specialize in optimizing solutions for various algorithmic challenges.
+                My expertise spans across competitive programming, data structures, and algorithmic design,
+                consistently achieving efficient and scalable solutions. Do check out my coding profiles below !!!
+            </h3>
+            <div class="coding-profile-container">
+                <div class="coding-profile">
+                    <a href="https://leetcode.com/u/adithyavardhan_d/" target="_blank"><img src="leetcode.png"
+                            alt="LeetCode Icon"></a>
+                </div>
+                <div class="coding-profile">
+                    <a href="https://www.geeksforgeeks.org/user/adithyavardhebcc/" target="_blank"><img src="gfg.png"
+                            alt="GeeksforGeks Icon"></a>
+                </div>
+                <div class="coding-profile">
+                    <a href="https://www.hackerrank.com/profile/adithyavardhand1" target="_blank"><img
+                            src="hackerrank.png" alt="HackerRank Icon"></a>
+                </div>
+                <div class="coding-profile">
+                    <a href="https://www.codechef.com/users/adithyad_04" target="_blank"><img src="codechef.png"
+                            alt="Codechef Icon"></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contactSection">
+            <h2>Contact Me</h2>
+            <div class="social-icons">
+                <a href="https://github.com/adithyavardhand" target="_blank"><img src="github.png" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/adithya-vardhan-dosapati-269170243/" target="_blank"><img
+                        src="linkedin.png" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com/adithyavardhan_d/" target="_blank"><img src="instagram.png"
+                        alt="Instagram"></a>
+                <a href="https://x.com/AdithyaDosapati" target="_blank"><img src="twitter.png" alt="Twitter"></a>
+            </div>
+            <div class="contact">
+                <h3>Phone: +91 9392002374</h3>
+                <h3>Email: adithyavardhandosapati@gmail.com</h3>
+            </div>
+        </section>
+
+        <div class="resume-section" style="text-align: center;">
+            <a href="https://drive.google.com/file/d/1JJ_FFFoDcE3MV4Bih_M8pUcxHqW3tNiz/view?usp=sharing" target="_blank" class="resume-button">Download Resume</a>
+        </div>
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Adithya's Portfolio. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Programmer', 'UI Designer', 'ML Enthusiast'],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
